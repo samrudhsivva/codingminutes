@@ -1,0 +1,31 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		HashSet<Integer> hs=new HashSet<>();
+		System.out.println("enter n value");
+		int n=sc.nextInt();
+		System.out.println("enter s value");
+		int s=sc.nextInt();
+		int[] arr=new int[n];
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.nextInt();
+		}
+		int k;
+		for(int i=0;i<n;i++)
+		{k=arr[i];
+		int m=s-k;
+		boolean d=hs.contains(m);
+		if(d)
+		{
+		    System.out.println("Found");
+		    break;
+		}
+		hs.add(k);
+		    
+		}
+		
+	}
+}
