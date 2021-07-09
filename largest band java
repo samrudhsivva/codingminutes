@@ -1,0 +1,53 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Set<Integer> s=new HashSet<Integer>();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter n value");
+		int n=sc.nextInt();
+		int[] arr=new int[n];
+		int d=0;
+		System.out.println("enter arr elements");
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.nextInt();
+		}
+		for(int i=0;i<n;i++)
+		{
+		    s.add(arr[i]);
+		}
+		for(int i=0;i<n;i++)
+		{
+		    if(s.contains(arr[i]-1))
+		    {
+		        //System.out.println("non starting ele"+arr[i]);
+		        continue;
+		    }
+		    else
+		    {  // System.out.println("starting ele"+arr[i]);
+		        int k=arr[i];
+		       // System.out.println("set is"+s);
+		        s.remove(arr[i]);
+		       // System.out.println("after removing set is"+s);
+		        int c=1;
+		        int j=1;
+		        while(s.contains(k+j))
+		        {
+		           // System.out.println("k+j is"+(k+j));
+		            s.remove(k+j);
+		            c+=1;
+		            j+=1;
+		            
+		            //System.out.println("inside after removing set is"+s);
+		        }
+		        if(d<c)
+		        {
+		            d=c;
+		        }
+		        
+		    }
+		}
+		System.out.println(d);
+	}
+}
