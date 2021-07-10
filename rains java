@@ -1,0 +1,50 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args)
+	{
+	    
+    Scanner sc= new Scanner(System.in);
+    int n=sc.nextInt();
+    int[] a=new int[n];
+    for(int i=0;i<n;i++)
+    {
+        a[i]=sc.nextInt();
+    }
+    int[] la=new int[n];
+    int[] ra=new int[n];
+    int max=-1;
+    for(int i=0;i<n;i++)
+    {
+        if(max>a[i])
+        {
+        la[i]=max;
+        }
+        else
+        {
+        la[i]=a[i];
+        max=a[i];
+        }
+    }
+    max=-1;
+    for(int i=n-1;i>-1;i--)
+    {
+        if(max>a[i])
+        {
+        ra[i]=max;
+        }
+        else
+        {
+        ra[i]=a[i];
+        max=a[i];
+        }
+    }
+    int water=0;
+    for(int i=0;i<n;i++)
+    {
+        water+=(Math.min(la[i],ra[i]))-a[i];
+    }
+    
+    System.out.println(water);
+	}
+}
